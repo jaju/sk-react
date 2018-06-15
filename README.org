@@ -1,0 +1,3 @@
+* Overview
+This project is meant as a starter kit for react-js, following starting instructions from
+[[https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel]]
