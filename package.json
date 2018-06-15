@@ -6,6 +6,7 @@
   "author": "Ravindra R. Jaju <jaju@msync.org>",
   "license": "MIT",
   "dependencies": {
+    "@material-ui/core": "^1.2.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
