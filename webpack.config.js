@@ -11,6 +11,7 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = [
   {
     entry: './src/index.js',
+    mode: 'development',
     output: {
       path: path.resolve(__dirname, 'resources/public'),
       filename: 'js/index.js'
