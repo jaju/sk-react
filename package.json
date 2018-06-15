@@ -1,0 +1,8 @@
+{
+  "name": "sk-react",
+  "version": "1.0.0",
+  "description": "React Starter Kit",
+  "main": "index.js",
+  "author": "Ravindra R. Jaju <jaju@msync.org>",
+  "license": "MIT"
+}
