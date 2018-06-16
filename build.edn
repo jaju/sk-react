@@ -1,0 +1,10 @@
+^{:css-dirs ["resources/public/css"]}
+{:main sk-react.core
+ :output-to "resources/public/js/app.js"
+ :output-dir "resources/public/js/out"
+ :infer-externs true
+ :npm-deps false
+ :foreign-libs [{:file "resources/public/js/bundle.js"
+                 :provides ["react" "react-dom"]
+                 :global-exports {react React
+                                  react-dom ReactDOM}}]}

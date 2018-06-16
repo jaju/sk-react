@@ -1,28 +1,31 @@
 const path = require('path')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/index.html',
   filename: 'index.html',
-  inject: 'body'
+  inject: 'head'
 })
 
 
 module.exports = [
   {
-    entry: './src/index.js',
+    entry: './src/js/bundle.js',
     mode: 'production',
     output: {
       path: path.resolve(__dirname, 'resources/public'),
-      filename: 'js/index.js'
+      filename: 'js/bundle.js'
     },
     module: {
       rules: [
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           use: [
-            { loader: "style-loader" },
-            { loader: "css-loader" }
+            process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
+            "css-loader",
+            "sass-loader"
           ]
         },
         {
@@ -37,6 +40,15 @@ module.exports = [
         }
       ]
     },
-    plugins: [HtmlWebpackPluginConfig]
+    plugins: [
+      HtmlWebpackPluginConfig,
+      new CopyWebpackPlugin([{from: './src/index.html', to: path.resolve(__dirname, 'resources/public')}]),
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "css/[name].css",
+        chunkFilename: "[id].css"
+      })
+    ]
   }
 ]
