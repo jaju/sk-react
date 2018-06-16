@@ -1,2 +1,5 @@
 /yarn.lock
 /resources
+/.cpcache
+/.rebel_readline_history
+/yarn-error.log
