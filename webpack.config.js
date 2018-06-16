@@ -1,5 +1,4 @@
 const path = require('path')
-const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -42,7 +41,6 @@ module.exports = [
     },
     plugins: [
       HtmlWebpackPluginConfig,
-      new CopyWebpackPlugin([{from: './src/index.html', to: path.resolve(__dirname, 'resources/public')}]),
       new MiniCssExtractPlugin({
         // Options similar to the same options in webpackOptions.output
         // both options are optional
