@@ -8,25 +8,39 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   inject: 'head'
 })
 
-
 module.exports = [
   {
-    entry: './src/js/bundle.js',
+    entry: './src/scss/bundle.scss',
     mode: 'production',
+    output: {
+      path: path.resolve(__dirname, 'resources/public')
+    },
+    module: {
+      rules: [
+        { test: /\.scss$/,
+          use: [
+            {loader: MiniCssExtractPlugin.loader},
+            {loader: "css-loader"},
+            {loader: "sass-loader"}
+          ]}]},
+    plugins: [
+      new MiniCssExtractPlugin({
+        // Options similar to the same options in webpackOptions.output
+        // both options are optional
+        filename: "css/bundle.css"
+      })
+    ]
+  },
+
+  {
+    entry: './src/js/bundle.js',
+    mode: 'development',
     output: {
       path: path.resolve(__dirname, 'resources/public'),
       filename: 'js/bundle.js'
     },
     module: {
       rules: [
-        {
-          test: /\.scss$/,
-          use: [
-            process.env.NODE_ENV !== "production" ? "style-loader" : MiniCssExtractPlugin.loader,
-            "css-loader",
-            "sass-loader"
-          ]
-        },
         {
           test: /\.js/,
           exclude: /node_modules/,
@@ -39,14 +53,6 @@ module.exports = [
         }
       ]
     },
-    plugins: [
-      HtmlWebpackPluginConfig,
-      new MiniCssExtractPlugin({
-        // Options similar to the same options in webpackOptions.output
-        // both options are optional
-        filename: "css/[name].css",
-        chunkFilename: "[id].css"
-      })
-    ]
+    plugins: [HtmlWebpackPluginConfig]
   }
 ]
