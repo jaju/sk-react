@@ -34,7 +34,7 @@ module.exports = [
 
   {
     entry: './src/js/bundle.js',
-    mode: 'development',
+    mode: 'production',
     output: {
       path: path.resolve(__dirname, 'resources/public'),
       filename: 'js/bundle.js'

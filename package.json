@@ -11,6 +11,7 @@
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
+    "@cljs-oss/module-deps": "^1.1.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
