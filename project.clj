@@ -11,8 +11,6 @@
 
                  [reagent "0.8.1"]]
 
-  :plugins [[lein-cljsbuild "1.1.7"]]
-
   :source-paths ["src/cljs"]
 
   :cljsbuild {:builds {:app {:id           :app
@@ -22,7 +20,7 @@
                                             :verbose              true
                                             :output-to            "resources/public/js/app.js"
                                             :output-dir           "resources/public/js/out"
-                                            :asset-path           "js"
+                                            :asset-path           "js/out"
                                             :closure-defines      {"goog.DEBUG" true}
                                             :optimizations        :none
                                             :pretty-print         true
