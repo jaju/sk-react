@@ -1,3 +1,29 @@
 * Overview
-This project is meant as a starter kit for react-js, following starting instructions from
-[[https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel]]
+This project is meant as a starter kit for react-js for use via Clojurescript, following starting instructions from
+
+- [[https://scotch.io/tutorials/setup-a-react-environment-using-webpack-and-babel]], and
+- [[https://clojurescript.org/guides/webpack]]
+
+* Webpack
+Bundle the JS libraries you wish to use in [[https://github.com/jaju/sk-react/blob/master/src/js/bundle.js][src/js/bundle.js]]. And SASS code in [[https://github.com/jaju/sk-react/blob/master/src/scss/bundle.scss][src/scss/bundle.scss]].
+Then, run
+#+BEGIN_SRC bash
+yarn build
+#+END_SRC
+
+Webpack processed JS and CSS outputs will be placed in resources/public/{js,css}. [[https://github.com/jaju/sk-react/blob/master/src/index.html][src/index.html]] is used as
+a template and updated accordingly by webpack before being copied to resources/public.
+Apart from [[https://reactjs.org/][ReactJS]], [[https://material-ui.com/][Material UI]] is also added to the base bundle.
+
+
+* Leiningen + Clojurescript + Figwheel + Reagent
+The [[https://github.com/jaju/sk-react/blob/master/project.clj][project.clj]] is configured to let figwheel figure out JS compilation and CSS hot-reloading for development. Figwheel's HTTP
+serving port and the nREPL port are configured in project.clj
+[[https://reagent-project.github.io/][Reagent]] is added as a default library for [[https://reactjs.org/][ReactJS]] programming.
+Figwheel compiles and places app.js in resources/public/js. And extra JS files during development in resources/public/js/out.
+Figwheel is configured to serve all HTML, JS and CSS appropriately from resources/public.
+
+[[https://github.com/jaju/sk-react/blob/master/scripts/repl.clj][scripts/repl.clj]] has development-time code to invoke figwheel appropriately and start an nREPL instance too.
+
+
+--------------------------------------------------------------------------------
