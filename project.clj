@@ -7,7 +7,9 @@
   :min-lein-version "2.8.1"
 
   :dependencies [[org.clojure/clojure "1.10.0-alpha4"]
-                 [org.clojure/clojurescript "1.10.329" :scope "provided" :exclusions [org.clojure/tools.reader]]]
+                 [org.clojure/clojurescript "1.10.339" :scope "provided" :exclusions [org.clojure/tools.reader]]
+
+                 [reagent "0.8.1"]]
 
   :plugins [[lein-cljsbuild "1.1.7"]]
 
