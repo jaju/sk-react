@@ -39,9 +39,15 @@ $ lein repl # Or equivalent from your editor/IDE
 ; Note the port numbers as needed
 ;=>
 (cljs-repl)
+; Launching ClojureScript REPL for build: app
+; ..... *snipped* ....
+; Prompt will show when Figwheel connects to your application
+; < At this point, you'll launch the browser and give this process the much needed eval environment! >
+; To quit, type: :cljs/quit
+=> nil
 #+END_SRC
 
-Now, open your browser and hack away!
+Now, hack away in your nREPL connected editor!
 
 
 --------------------------------------------------------------------------------
