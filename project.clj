@@ -6,12 +6,13 @@
 
   :min-lein-version "2.8.1"
 
-  :dependencies [[org.clojure/clojure "1.10.0-alpha4"]
+  :dependencies [[org.clojure/clojure "1.10.0-alpha5"]
                  [org.clojure/clojurescript "1.10.339" :scope "provided" :exclusions [org.clojure/tools.reader]]
-
                  [reagent "0.8.1"]]
 
   :source-paths ["src/cljs"]
+
+  :plugins [[lein-cljsbuild "1.1.7"]]
 
   :cljsbuild {:builds {:app {:id           :app
                              :source-paths ["src/cljs"]
@@ -28,8 +29,7 @@
                                             :source-map           false}
                              :figwheel     true}}}
 
-  :figwheel {:nrepl-port  11001
-             :server-port 5309
+  :figwheel {:server-port 5309
              :css-dirs    ["resources/public/css"]}
 
   :clean-targets ^{:protect false} [:target-path
@@ -38,8 +38,9 @@
                                     "resources/public/js/out"
                                     "figwheel_server.log"]
 
-  :profiles {:dev {:dependencies [[cider/piggieback "0.3.6"]
-                                  [org.clojure/tools.nrepl "0.2.13"]
-                                  [figwheel-sidecar "0.5.17-SNAPSHOT" :exclusions [org.clojure/tools.reader]]]
-                   :repl-options {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
-                   :cljsbuild    {:builds {:app {:compiler {:main "sk-react.core"}}}}}})
+  :profiles {:dev {:source-paths     ["dev"]
+                   :dependencies     [[cider/piggieback "0.3.6"]
+                                      [org.clojure/tools.nrepl "0.2.13"]
+                                      [figwheel-sidecar "0.5.17-SNAPSHOT" :exclusions [org.clojure/tools.reader]]]
+                   :repl-options     {:nrepl-middleware [cider.piggieback/wrap-cljs-repl]}
+                   :cljsbuild-unused {:builds {:app {:compiler {:main "sk-react.core"}}}}}})

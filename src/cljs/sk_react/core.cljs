@@ -1,4 +1,10 @@
 (ns sk-react.core
-  (:require [react]))
+  (:require [reagent.core :as r]))
 
-(.render js/ReactDOM (.render (js/App.)) (.getElementById js/document "app"))
+(defn render-something [text]
+  [:div
+   (.render (js/App.))
+   [:h1.center
+    text]])
+
+(r/render [render-something "I come from reagent"] (.getElementById js/document "app"))

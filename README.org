@@ -7,14 +7,17 @@ This project is meant as a starter kit for react-js for use via Clojurescript, f
 * Webpack
 Bundle the JS libraries you wish to use in [[https://github.com/jaju/sk-react/blob/master/src/js/bundle.js][src/js/bundle.js]]. And SASS code in [[https://github.com/jaju/sk-react/blob/master/src/scss/bundle.scss][src/scss/bundle.scss]].
 Then, run
+
 #+BEGIN_SRC bash
 yarn build
 #+END_SRC
 
-Webpack processed JS and CSS outputs will be placed in resources/public/{js,css}. [[https://github.com/jaju/sk-react/blob/master/src/index.html][src/index.html]] is used as
-a template and updated accordingly by webpack before being copied to resources/public.
-Apart from [[https://reactjs.org/][ReactJS]], [[https://material-ui.com/][Material UI]] is also added to the base bundle.
+Webpack processed JS and CSS outputs will be placed in resources/public/{js,css}.
 
+[[https://github.com/jaju/sk-react/blob/master/src/index.html][src/index.html]] is used as
+a template and updated accordingly by webpack before being copied to resources/public.
+
+Apart from [[https://reactjs.org/][ReactJS]], [[https://material-ui.com/][Material UI]] is also added to the base bundle.
 
 * Leiningen + Clojurescript + Figwheel + Reagent
 The [[https://github.com/jaju/sk-react/blob/master/project.clj][project.clj]] is configured to let figwheel figure out JS compilation and CSS hot-reloading for development. Figwheel's HTTP
