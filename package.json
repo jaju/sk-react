@@ -27,6 +27,6 @@
     "webpack-cli": "^3.0.7"
   },
   "scripts": {
-    "build": "webpack"
+    "build": "webpack --watch --progress"
   }
 }

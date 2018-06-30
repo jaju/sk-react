@@ -11,6 +11,11 @@ const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 module.exports = [
   {
     entry: './src/scss/bundle.scss',
+    watch: true,
+    watchOptions: {
+      aggregateTimeout: 900,
+      ignored: [/node_modules/, '**/*.js']
+    },
     mode: 'production',
     output: {
       path: path.resolve(__dirname, 'resources/public')
